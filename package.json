@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/cli": "^7.21.0",
+    "@babel/core": "^7.21.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.21.2",
+    "@babel/preset-env": "^7.21.4",
     "@emailjs/browser": "^3.10.0",
     "@mui/icons-material": "^5.11.11",
     "@testing-library/jest-dom": "^5.16.5",
@@ -42,7 +46,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "magic8ball-client"
