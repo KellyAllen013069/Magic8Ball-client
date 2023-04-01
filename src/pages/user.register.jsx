@@ -1,5 +1,6 @@
 import { useState, useRef} from "react";
 import {useNavigate} from 'react-router-dom';
+import settings from '../config/settings.json'
 
 function Register() {
   const [name, setName] = useState("");
@@ -23,7 +24,7 @@ function Register() {
       };
 
 
-      fetch(`/api/authlocal/register`, {
+      fetch(`${settings.serverUrl}/api/authlocal/register`, {
             method: "POST", 
             headers: {
                 "Content-Type" : "application/json"

@@ -1,4 +1,5 @@
 import React from 'react';
+import settings from '../config/settings.json'
 import {useState} from 'react';
 import { useContext } from "react";
 import {AuthContext} from '../components/AuthContext'
@@ -32,7 +33,7 @@ function MainAuth() {
         };
   
   
-        fetch(`/api/authlocal/login`, {
+        fetch(`${settings.serverUrl}/api/authlocal/login`, {
               method: "POST", 
               credentials: 'include',
               headers: {

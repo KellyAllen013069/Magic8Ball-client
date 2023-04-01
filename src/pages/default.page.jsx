@@ -1,6 +1,6 @@
 
 /* eslint-disable react-hooks/exhaustive-deps */
-
+import settings from '../config/settings.json';
 import { useContext, useState, useEffect, useRef } from "react";
 import SpeechRecognition, {
   useSpeechRecognition,
@@ -33,7 +33,7 @@ function DefaultPage() {
     
       if(authUser) {
         let reqBody = {id:authUser.id}
-        fetch(`/api/themes/publicAndUser`, {
+        fetch(`${settings.serverUrl}/api/themes/publicAndUser`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -51,7 +51,7 @@ function DefaultPage() {
         });
       } else {
       
-        fetch(`/api/themes/public`, {
+        fetch(`${settings.serverUrl}/api/themes/public`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -70,7 +70,7 @@ function DefaultPage() {
     }
 
     function getDefaultResponses() {
-      fetch(`/api/responses/default`)
+      fetch(`${settings.serverUrl}/api/responses/default`)
           .then((res) => res.json())
           .then((data) => setResponses(data))
           .catch((err) => {
@@ -84,7 +84,7 @@ function DefaultPage() {
       let currentTheme = themeSelector.current.selectedIndex;
       setCurrentThemeName(themes[currentTheme].Name);
       setCurrentThemeCont(themes[currentTheme].UserName)
-      fetch(`/api/responses/responsesForTheme`,{
+      fetch(`${settings.serverUrl}/api/responses/responsesForTheme`,{
         'method': 'POST',
         'headers': {
           'content-type': 'application/json'

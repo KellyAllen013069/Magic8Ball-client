@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext, useRef } from "react";
 import {MdEdit, MdDelete} from 'react-icons/md';
 import { AuthContext } from "../components/AuthContext";
+import settings from '../config/settings.json'
 
 
 function UserThemes() {
@@ -26,7 +27,7 @@ function UserThemes() {
 
   useEffect(() => {
     if(!authUser) return;
-    fetch(`/api/themes/userThemes/`, {
+    fetch(`${settings.serverUrl}/api/themes/userThemes/`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -61,7 +62,7 @@ function UserThemes() {
       Type: makePublic ? 'publish' : 'private',
     }
 
-    fetch(`/api/themes/addTheme`, {
+    fetch(`${settings.serverUrl}/api/themes/addTheme`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -76,7 +77,7 @@ function UserThemes() {
           phrases: phrases 
         }
     
-        fetch(`/api/responses/addAllResponses`, {
+        fetch(`${settings.serverUrl}/api/responses/addAllResponses`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -131,7 +132,7 @@ function UserThemes() {
           ResponseID: response.ResponseID,
           Phrase: response.Phrase.replace(/'/g, "''")
         }));
-        fetch(`/api/responses/updateAllResponses`, {
+        fetch(`${settings.serverUrl}/api/responses/updateAllResponses`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -152,7 +153,7 @@ function UserThemes() {
             phrases: additionalPhrases
           }
   
-          fetch(`/api/responses/addAllResponses`, {
+          fetch(`${settings.serverUrl}/api/responses/addAllResponses`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -189,14 +190,14 @@ function UserThemes() {
     setMethod('edit');
     setThemeID(id);
     //get theme info
-    fetch(`/api/themes/byid/${id}`)
+    fetch(`${settings.serverUrl}/api/themes/byid/${id}`)
     .then(res=>res.json())
     .then(data => {
       setName(data.Name);
       setAdminComments(data.AdminComments);
       setApproval(data.AdminApproval)
       //get responses for that theme
-      fetch(`/api/responses/responsesForTheme`,{
+      fetch(`${settings.serverUrl}/api/responses/responsesForTheme`,{
         'method': 'POST',
         'headers': {
           'content-type': 'application/json'
@@ -217,7 +218,7 @@ function UserThemes() {
   function removeTheme(id, name) {
     const confirmed = window.confirm(`Are you sure you want to delete ${name} ?`);
     if (!confirmed) return;
-    fetch(`/api/themes/deleteTheme/${id}`, {
+    fetch(`${settings.serverUrl}/api/themes/deleteTheme/${id}`, {
       method: "DELETE",
           headers: {
             "Content-Type": "application/json",
