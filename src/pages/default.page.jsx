@@ -33,6 +33,7 @@ function DefaultPage() {
     
       if(authUser) {
         let reqBody = {id:authUser.id}
+        console.log(`server url is ${settings.serverUrl}`)
         fetch(`${settings.serverUrl}/api/themes/publicAndUser`, {
           method: "POST",
           headers: {
