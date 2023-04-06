@@ -127,6 +127,7 @@ animation: shake 1s;
 }
 
 .App {
+  background: linear-gradient(180deg,rgb(240,248,255), rgb(0,0,255)); 
   min-height: 100vh;
 }
 
