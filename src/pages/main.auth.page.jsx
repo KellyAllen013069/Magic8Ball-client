@@ -60,6 +60,7 @@ function MainAuth() {
     }
    
     function signinGoogle() {
+        console.log("server is " + settings.serverUrl);
         window.open(`${settings.serverUr}/api/authgoogle/login`, "_self")
     }
    
