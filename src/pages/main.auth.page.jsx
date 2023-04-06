@@ -65,7 +65,7 @@ function MainAuth() {
     }
    
     function signinGitHub() {
-        window.open(`${settings.serverUrl}/api/authgithub/login`, "_self")
+        window.open(`https://magic8ballserver.onrender.com/api/authgithub/login`, "_self")
     }
 
     return (
