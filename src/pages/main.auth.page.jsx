@@ -60,11 +60,11 @@ function MainAuth() {
     }
    
     function signinGoogle() {
-        window.open(`/api/authgoogle/login`, "_self")
+        window.open(`${settings.serverUr}/api/authgoogle/login`, "_self")
     }
    
     function signinGitHub() {
-        window.open(`/api/authgithub/login`, "_self")
+        window.open(`${settings.serverUrl}/api/authgithub/login`, "_self")
     }
 
     return (
