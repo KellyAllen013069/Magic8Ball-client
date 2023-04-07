@@ -61,7 +61,7 @@ function MainAuth() {
    
     function signinGoogle() {
         console.log("server is " + settings.serverUrl);
-        window.open(`${settings.serverUr}/api/authgoogle/login`, "_blank")
+        window.open(`https://magic8ballserver.onrender.com/api/authgoogle/login`, "_blank")
     }
    
     function signinGitHub() {
