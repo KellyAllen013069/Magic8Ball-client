@@ -61,11 +61,11 @@ function MainAuth() {
    
     function signinGoogle() {
         console.log("server is " + settings.serverUrl);
-        window.open(`https://magic8ballserver.onrender.com/api/authgoogle/login`, "_blank")
+        window.open(`https://magic8ballserver.onrender.com/api/authgoogle/login`, "_self")
     }
    
     function signinGitHub() {
-        window.open(`https://magic8ballserver.onrender.com/api/authgithub/login`, "_blank")
+        window.open(`https://magic8ballserver.onrender.com/api/authgithub/login`, "_self")
     }
 
     return (
