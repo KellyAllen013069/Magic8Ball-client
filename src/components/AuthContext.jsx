@@ -8,7 +8,10 @@ export const AuthContext = createContext({
 });
 
 function getUser(setAuthUser) {
-  fetch(`${settings.serverUrl}/api/user/getuser`, { credentials: 'include' })
+  fetch(`${settings.serverUrl}/api/user/getuser`, { 
+    method: 'GET',
+    credentials: 'include' 
+  })
     .then((res) => res.json())
     .then((data) => {
       setAuthUser(data.user);
