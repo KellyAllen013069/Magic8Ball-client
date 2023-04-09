@@ -16,6 +16,7 @@ function getUser(setAuthUser) {
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log("data is " + JSON.stringify(data))
       setAuthUser(data.user);
     })
     .catch((err) => {
