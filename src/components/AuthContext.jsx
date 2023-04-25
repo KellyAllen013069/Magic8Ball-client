@@ -10,7 +10,7 @@ export const AuthContext = createContext({
 function getUser(setAuthUser) {
   console.log("******about to fetch user***********")
 
-  fetch(`https://magic8ballserver.onrender.com/api/user/getuser`, { 
+  fetch(`${settings.serverUrl}/api/user/getuser`, { 
     method: 'GET',
     credentials: 'include' 
   })
